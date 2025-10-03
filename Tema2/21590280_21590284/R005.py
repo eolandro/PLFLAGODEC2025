@@ -1,31 +1,16 @@
-##R005##
-##20##
-"""
-Un ingeniero esta estudiando un parche creado por un cracker
-al usar herramientas como x64dbg se da cuenta que el parche reemplaza
-el byte 343 un '0x01' por un '0x00' del binario original
+def curry_coulomb(k):
+    def con_q1(q1):
+        def con_q2(q2):
+            def con_r(r):
+                return (k * q1 * q2) / (r**2)
+            return con_r
+        return con_q2
+    return con_q1
 
-Suponiendo que el binario llega en una lista, defina una funcion
-que reemplace una posicion especifica de la lista por otro valor
-
-
-def patch(nbyte,valor,lbin):
-	pass
-	
-L = [0xff, 0x01, 0xaa, 0xf1 ]
-#[255, 1, 170, 241]
-
-T = patch(1,0xFF,L)
-
-print(T)
-#[255, 255, 170, 241]
-"""
-
-def patch(nbyte, valor, lbin):
-    if nbyte == 0:
-        return [valor] + lbin[1:]
-    return [lbin[0]] + patch(nbyte - 1, valor, lbin[1:])
-
-L = [0xff, 0x01, 0xaa, 0xf1]
-T = patch(1, 0xFF, L)
-print(T) 
+k_const = 9e9
+q1_test = 3e-6
+q2_test = -8e-6
+r_test = 2
+    
+fuerza_curry = curry_coulomb(k_const)(q1_test)(q2_test)(r_test)
+print(f"Resultado con currificación: {fuerza_curry}")

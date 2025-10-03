@@ -38,6 +38,11 @@ def seq0(num):
         return "Intente de nuevo"
 
 
+print(seq0(0))
+print(seq0(1))
+print(seq0(2))
+print(seq0(3))
+print(seq0(4))
 print(seq0(5))
 
 

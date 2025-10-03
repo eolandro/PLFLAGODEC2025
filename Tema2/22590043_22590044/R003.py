@@ -71,4 +71,4 @@ def impGrafCir(grafo,inicio,limite):
 
 print('\nEjercico 3:')
 impGrafCir(Grafo,"AZ","EV")
-#impGrafCir(Grafo,"BX","AZ")
+impGrafCir(Grafo,"BX","AZ")

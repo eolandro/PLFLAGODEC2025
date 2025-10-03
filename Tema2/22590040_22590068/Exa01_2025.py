@@ -55,7 +55,12 @@ def seq0(n): #ya esta
         return 7
     return seq0(n-1)+10*2**(n-1)
 
+print(seq0(0))
+print(seq0(1))
+print(seq0(2))
+print(seq0(3))
 print(seq0(4))
+print(seq0(5))
 
 ##R003##
 ##45##

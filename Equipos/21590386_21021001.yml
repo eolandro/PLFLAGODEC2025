@@ -1,9 +1,7 @@
 # Información del Equipo
 ---
 Equipo:
-    Integrante 1:
-        NoControl: "21590396"
-        Nombre: Isaac Hernández Lucio
-    Integrante 2:
-        NoControl: "21021001"
-        Nombre: José Uriel Uribe Callejas
+  - NoControl: "21590396"
+    Nombre: Isaac Hernández Lucio
+  - NoControl: "21021001"
+    Nombre: José Uriel Uribe Callejas

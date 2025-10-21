@@ -48,6 +48,6 @@ print("Recorrido hasta EV:")
 impGrafCir(Grafo, "AZ", "EV")
 
 #AZ - GR
-#print("\nRecorrido hasta GR:")
-#impGrafCir(Grafo, "AZ", "GR")
+print("\nRecorrido hasta GR:")
+impGrafCir(Grafo, "AZ", "GR")
 

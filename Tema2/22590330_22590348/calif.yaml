@@ -1,0 +1,69 @@
+Equipo:
+- NoControl: '22590330'
+  Nombre: Juan Carlos Hurtado Trejo
+- NoControl: '22590348'
+  Nombre: Ana Rebeca Pérez García
+Calificacion: 150
+Informe:
+- ID: R001
+  Ponderacion: 10
+  Reactivo: "\nDefina una función recursiva que permita imprimir\nuna matriz, una
+    matriz en realidad es una lista\nde listas\n\nM = [\n\t[9,8,7],\n\t[4,5,6],\n\t\
+    [3,2,1]\n]\n\ndef impMat(matriz):\n\tpass\n\t\nimpMat(M)\n=>[9,8,7],\n=>[4,5,6],\n\
+    =>[3,2,1]\n\n"
+  Cumplio: Si
+- ID: R002
+  Ponderacion: 10
+  Reactivo: "\nDada la siguiente secuencia matematica\n7, 17, 37, 77, 157, 317\nEncuentre
+    la función matematica recursiva\ne implementela en python\n\ndef seq0():\n\tpass\n\
+    \t\nprint(seq0(0))\n=>7\nprint(seq0(1))\n=>17\nprint(seq0(2))\n=>37\n\n"
+  Cumplio: Si
+- ID: R003
+  Ponderacion: 45
+  Reactivo: "\nRecorrido en un grafo circular\nDefina una funcion recursiva que imprima
+    todos\nlos elementos de un grafo circular\n\nAZ → BX → CY → DW → EV\n↑       \
+    \        ↓\nFU → IT → HS → GR → FQ\n\nGrafo = [\n\t[\"AZ\",\"BX\"],\n\t[\"BX\"\
+    ,\"CY\"],\n\t[\"CY\",\"DW\"],\n\t[\"DW\",\"EV\"],\n\t[\"EV\",\"FU\"],\n\t[\"FU\"\
+    ,\"GR\"],\n\t[\"GR\",\"HS\"],\n\t[\"HS\",\"IT\"],\n\t[\"IT\",\"JU\"],\n\t[\"JU\"\
+    ,\"AZ\"]\n]\n\n\ndef impGrafCir(grafo,inicio,limite):\n\tpass\n\nimpGradCir(Grafo,\"\
+    AZ\",\"EV\")\n=>AZ\n=>BX\n=>CY\n=>DW\n=>EV\nimpGradCir(Grafo,\"AZ\",\"GR\")\n\
+    =>AZ\n=>BX\n=>CY\n=>DW\n=>EV\n=>FU\n=>GR\n"
+  Cumplio: Si
+- ID: R004
+  Ponderacion: 15
+  Reactivo: "\n Bada Boom!!! \nGenere e imprima una lista con los numeros del  1 al
+    100 \ncon las siguientes condiciones:\n\t1) si es multiplo de 3 coloque la cadena
+    \"Bada\"\n\t2) si es multiplo de 5 coloque la cadena \"Boom!!\"\n\t3) si es multiplo
+    de 3 y 5 coloque \"Bada Boom!!\"\n\t\ndef badaboom():\n\tpass\n\t\nL = badaboom()\n\
+    print(L)\n=>[1,2,\"Bada\",4,\"Boom!!\",\"Bada\",7,8,\"Bada\",\"Boom!!\",11,\"\
+    Bada\",13,14,\"BadaBoom!!\"...\n"
+  Cumplio: Si
+- ID: R005
+  Ponderacion: 20
+  Reactivo: "\nUn ingeniero esta estudiando un parche creado por un cracker\nal usar
+    herramientas como x64dbg se da cuenta que el parche reemplaza\nel byte 343 un
+    '0x01' por un '0x00' del binario original\n\nSuponiendo que el binario llega en
+    una lista, defina una funcion\nque reemplace una posicion especifica de la lista
+    por otro valor\n\n\ndef patch(nbyte,valor,lbin):\n\tpass\n\t\nL = [0xff, 0x01,
+    0xaa, 0xf1 ]\n=>[255, 1, 170, 241]\n\nT = patch(1,0xFF,L)\n\nprint(T)\n=>[255,
+    255, 170, 241]\n"
+  Cumplio: Si
+- ID: R006
+  Ponderacion: 20
+  Reactivo: "\nUna funcion toma dos listas L1 y L2, las une en una sola\ncombiando
+    primer elemento de L1 con el primer elemento de L2.\n\nSi una de las dos listas
+    se agota simplemente une el resto de la lista a\nla lista resultante\n\n\ndef
+    combinaListas(L1,L2):\n\tpass\n\nR = combinaListas([1,2,3],[\"a\",\"b\",\"c\"\
+    ])\nprint(R)\n=> [1,\"a\",2,\"b\",3,\"c\"]\n\nR = combinaListas([1],[\"a\",\"\
+    b\",\"c\"])\nprint(R)\n=> [1,\"a\",\"b\",\"c\"]\n\nR = combinaListas([1,2,3],[\"\
+    a\"])\nprint(R)\n=> [1,\"a\",2,3]\n\n\nR = combinaListas([1,2,3],[])\nprint(R)\n\
+    => [1,2,3]\n\n\nR = combinaListas([],[\"a\",\"b\",\"c\"])\nprint(R)\n=> [\"a\"\
+    ,\"b\",\"c\"]\n\n"
+  Cumplio: Si
+- ID: R007
+  Ponderacion: 35
+  Reactivo: "\nProcesar data\n\nUtilizando el patron de diseño composicion recursiva
+    obten la\nsalida correspondiente:\n\nR = \"29590095,ROMAY TACITURNO RENE FERNANDA,0.7,1,1,1,1,1,1,0.7\"\
+    \n\nT = composicion_recursiva(R,[fun1,fun2,fun3,funN..])\nprint(T)\n=> [29590095,\"\
+    ROMAY TACITURNO RENE FERNANDA\",92.5]\n\n"
+  Cumplio: Si

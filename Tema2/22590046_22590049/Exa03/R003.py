@@ -6,7 +6,6 @@ diferente de ACTIVO
 """
 from pathlib import Path
 ruta = Path("cct22.csv")
-print ("\n R002 \n")
 with ruta.open(mode="r", encoding="utf-8") as archivo:
     R = map(lambda linea: linea.strip().split(','), archivo)
     R = map(lambda lista: lista, R)

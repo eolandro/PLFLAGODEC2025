@@ -6,9 +6,9 @@ archivo en una lista de listas
 """
 from pathlib import Path
 ruta = Path("cct22.csv")
-
-with ruta.open(mode="r", encoding="utf-8") as archivo:
-    R = map(lambda linea: linea.strip().split(','), archivo)
-    R = map(lambda lista: lista, R)
-    T = list(R)
-    print(T)
+if ruta.is_file():
+    with ruta.open(mode="r", encoding="utf-8") as archivo:
+        R = map(lambda linea: linea.strip().split(','), archivo)
+        R = map(lambda lista: lista, R)
+        T = list(R)
+        print(T)

@@ -1,0 +1,85 @@
+Equipo:
+- NoControl: '21590269'
+  Nombre: Jonatan Marcos Aguayo Olvera
+- NoControl: '21590293'
+  Nombre: Leonardo Daniel Montes Barajas
+Calificacion: 121
+Informe:
+- ID: R001
+  Ponderacion: 10
+  Reactivo: "\nDefine con tus palabras el concepto de una closure\ncolocalo en una
+    cadena y usa print() \n"
+  Cumplio: Si
+- ID: R002
+  Ponderacion: 10
+  Reactivo: "\nDefine con tus palabras el concepto de un wrapper\ncolocalo en una
+    cadena y usa print() \n"
+  Cumplio: Si
+- ID: R003
+  Ponderacion: 30
+  Reactivo: "\nLey de Coulomb\n\t\nF = (K*(q1 * q2)) /r**2\n\nk = 9 * (10**9) ((N
+    m²) / C)\n\nValores de K en diferentes medios\n\nVacio ==> K = k\nAire  ==> K
+    = k / 1.0005\nNaCL  ==> K = k / 5.9\nPVC  ==> K = k / 3.4\nAgua  ==> K = k / 81\n\
+    Glicerina  ==> K = k / 43\n\n--Elabora 6 wrappers de la Ley de Coulomb para calcular
+    la fuerza, \nentre dos cargas en una distancia determinada, correspondientes a
+    los 6\nmedios diferentes presentados anteriormente.\nCompruebe los wrappers considerando
+    que una carga de 3×10^-6 C \nse encuentra 2 m de una carga de -8×10^-6 C\n\n"
+  Cumplio: No
+- ID: R004
+  Ponderacion: 20
+  Reactivo: "\nElabora una parcialización de la función que resuelva la Ley de Coulomb.\n\
+    Compruebe la parcializacion considerando que una carga de 3×10^-6 C \nse encuentra
+    2 m de una carga de -8×10^-6 C\n"
+  Cumplio: No
+- ID: R005
+  Ponderacion: 20
+  Reactivo: "\nElabora una currificación de la función que resuelva la Ley de Coulomb.\n\
+    Compruebe la currificación considerando que una carga de 3×10^-6 C \nse encuentra
+    2 m de una carga de -8×10^-6 C\n"
+  Cumplio: Si
+- ID: R006
+  Ponderacion: 30
+  Reactivo: "\nLey de la Gravitacion universal\n\nF = (G*(m1*m2)) / d**2\n\nAceleracion
+    por Gravedad en diferentes lugares del sistema solar\n\nLuna 1.62 m/s²\nMarte
+    3.711 m/s²\nEuropa (Satelite de jupiter) 1.315 m/s²\nEncélado 0.113 m/s²\nTitan
+    1.352 m/s²\nVenus 8.87 m/s²\n\nElabora un closure que dependiendo el nombre de
+    astro, te retorne\nla funcion con la gravedad adecuada\n\nComprueba cada caso
+    del closure en los 6 astros considerando dos \nmasas de 100kg y 130kg a 2 metros
+    de distancia\n\n\n"
+  Cumplio: Si
+- ID: R007
+  Ponderacion: 20
+  Reactivo: "\nElabora una parcialización de una función que resuelva la ley de\n\
+    la gravitacion universal.\nCompruebe la parcializacion considerando dos masas
+    de 100kg y 130kg \na 2 metros de distancia\n\n"
+  Cumplio: No
+- ID: R008
+  Ponderacion: 20
+  Reactivo: "\nElabora una currificación de una función que resuelva la ley de\nla
+    gravitacion universal.\nCompruebe la currificación considerando dos masas de 100kg
+    y 130kg \na 2 metros de distancia\n\n"
+  Cumplio: Si
+- ID: R009
+  Ponderacion: 50
+  Reactivo: "\nRecuerda que todos los ejercicios son opcionales ustedes elegen que\
+    \ \nresolver\n\nPara este ejercicio debes ver prime este video\n\nhttps://www.youtube.com/watch?v=Ku0DRyRjfkk\n\
+    https://youtu.be/Ku0DRyRjfkk\n\nLo que ven es un ejemplo de malware muy basico
+    en python,\nNo quiero que repliquen lo que sucede en el video, pero si notan es\
+    \ \nposible bajar bibliotecas desde pip y pegarlas en una carpeta.\n\nLuego se
+    pueden alterar dichas bibliotecas maliciosamente.\nadjunto a este examen hay un
+    par de archivos\nXLibrary.py y main.py los cuales funcionan correctamente.\n\n\
+    altere el archivo XLibrary.py con un decorador\nque de manera aleatoria altere
+    el resultado de <collatz>\nagregando el valor -1.5 al final de la lista.\nPor
+    lo que el 50% de las veces se modifique la lista y 50% no lo haga.\n\nEspero este
+    codigo les sirva\n\nimport random\nMoneda = [True,False]\nR = random.choice(Moneda)\n\
+    print(R)\n=> True\nR = random.choice(Moneda)\nprint(R)\n=> True\nR = random.choice(Moneda)\n\
+    print(R)\n=> False\n"
+  Cumplio: No
+- ID: R010
+  Ponderacion: 35
+  Reactivo: "\nProcesar data\n\nUtilizando el patron de diseño composicion por funciones
+    de orden\nsuperior obten la salida correspondiente:\n\nR = \"29590097,ROMAY TACITURNO
+    RENE FERNANDA,0.7,1,1,1,1,1,1,0.7\"\n\nT = composicion_HOF(R)\nT = T(fun0)\nT
+    = T(fun1)\nT = T(fun2)\nT = T(fun3) =>...\nR = T(lambda e: None)\nprint(R)\n=>
+    [29590097,\"ROMAY TACITURNO RENE FERNANDA\",92.5]\n\n"
+  Cumplio: Si

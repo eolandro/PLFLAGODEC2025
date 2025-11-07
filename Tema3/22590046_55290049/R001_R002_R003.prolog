@@ -518,12 +518,13 @@ sobrino_a(Sobrino, TioTia) :-
 
 hermano_a(Ego, Persona) :-
     Ego \== Persona,
-    descendiente(PadreComun, Ego),
-    descendiente(PadreComun, Persona).
+    es_descendiente(PadreComun, Ego),
+    es_descendiente(PadreComun, Persona).
 % R002
 
 es_descendiente(Persona1, Persona2) :-
     descendiente(Persona1, Persona2).
+	
 es_descendiente(Persona1, Persona2) :-
     descendiente(Persona1, Intermedio),
     es_descendiente(Intermedio, Persona2).
@@ -535,8 +536,7 @@ descendientes(Persona, ListaDesc) :-
 
 tio_abuelo_a(TioAbuelo, Persona) :-
     es_descendiente(Abuelo, Persona),
-    hermanos_directos(TioAbuelo, Abuelo),
-	hermano_a(TioAbuelo, Abuelo)),
+    (hermanos_directos(TioAbuelo, Abuelo); hermano_a(TioAbuelo, Abuelo)),
     TioAbuelo \== Persona.
 
 % usamos la imagen del discord como la de redit 

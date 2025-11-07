@@ -1,0 +1,15 @@
+direccion("A",  0,  1).
+direccion("V",  0, -1).
+direccion(">",  1,  0).
+direccion("<", -1,  0).
+
+mover(S, X0, Y0, X1, Y1) :-
+    direccion(S, DX, DY),
+    X1 is X0 + DX,
+    Y1 is Y0 + DY.
+
+pirata([], X, Y, X, Y).
+
+pirata([D|R], X0, Y0, X, Y) :-
+    mover(D, X0, Y0, X1, Y1),
+    pirata(R, X1, Y1, X, Y).

@@ -1,0 +1,15 @@
+bada_boom(A, A) :-
+    multiplo(A).
+
+bada_boom(X, Y) :-
+    multiplo(X),
+    Siguiente is X + 1,
+    bada_boom(Siguiente, Y).
+
+multiplo(Z) :- 0 is Z mod 3, 0 is Z mod 5, write('"BadaBoom!!"'), nl, !.
+multiplo(Z) :- 0 is Z mod 3, write('"Bada"'), nl, !.
+multiplo(Z) :- 0 is Z mod 5, write('"Boom!!"'), nl, !.
+multiplo(Z) :- write(Z), nl.
+
+badaboom(N) :-
+    bada_boom(1, N).

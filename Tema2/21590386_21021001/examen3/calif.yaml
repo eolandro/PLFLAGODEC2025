@@ -1,0 +1,72 @@
+Equipo:
+- NoControl: '21590396'
+  Nombre: Isaac Hernández Lucio
+- NoControl: '21021001'
+  Nombre: José Uriel Uribe Callejas
+Calificacion: 110
+Informe:
+- ID: R001
+  Ponderacion: 10
+  Reactivo: "\nDel archivo cct22.csv abre el archivo en modo de solo lectura, agrega\n\
+    comprobaciones para verificar la existencia del mismo.\n\nRecomiendo el uso de
+    la biblioteca Pathlib\n"
+  Cumplio: Si
+- ID: R002
+  Ponderacion: 10
+  Reactivo: "\nDel archivo cct22.csv, usando monads convierte  y separa cada linea
+    del \narchivo en una lista de listas\n"
+  Cumplio: Si
+- ID: R003
+  Ponderacion: 20
+  Reactivo: "\nDel ejercicio anterior, elimina todas las filas donde C_ESTATUS sea\
+    \ \ndiferente de ACTIVO\n"
+  Cumplio: Si
+- ID: R004
+  Ponderacion: 30
+  Reactivo: "\nDel ejercicio anterior, retira todas las siguientes columnas\nCV_TIPO,C_TIPO\n\
+    TIPONIVELSUB_CV_SERVICION1,\nTIPONIVELSUB_C_SERVICION1,\nTIPONIVELSUB_CV_SERVICION2,\t\
+    \nTIPONIVELSUB_C_SERVICION2,\nTIPONIVELSUB_CV_SERVICION3,\nTIPONIVELSUB_C_SERVICION3,\n\
+    C_SERVICIO_CAM,\nCARACTERISTCA_CV_CARACTERIZAN1,\nCARACTERISTCA_C_CARACTERIZAN1,\n\
+    CARACTERISTCA_CV_CARACTERIZAN2,\nCARACTERISTCA_C_CARACTERIZAN2\nC_TUNO_1,C_TUNO_2,C_TUNO_3\n\
+    \n"
+  Cumplio: Si
+- ID: R005
+  Ponderacion: 20
+  Reactivo: "\nDel ejercicio anterior, elimina todas las filas donde CONTACTO_C_EMAIL
+    sea \nigual a 'actualizar@hotmail.com' o esten vacias\n"
+  Cumplio: Si
+- ID: R006
+  Ponderacion: 20
+  Reactivo: "\nDel ejercicio anterior, elimina todas las filas donde CONTACTO_C_TELEFONO\n\
+    y CONTACTO_C_CELULAR esten vacias\n"
+  Cumplio: Si
+- ID: R007
+  Ponderacion: 20
+  Reactivo: "\nDel ejercicio anterior, recupera las coordenas geograficas del tec\n\
+    de san juan y su clave 'CV_CCT'\n"
+  Cumplio: No
+- ID: R008
+  Ponderacion: 50
+  Reactivo: "\nUn visor hexadecimal es un programa que permite visualizar el contenido\n\
+    de cualquier archivo, byte a byte en formato hexadecimal\n\npor ejemplo si abres
+    un block de notas y escribes la palabra \"hola\"\ny lo guardas con el nombre de
+    saludo.txt se veria en un visor \nhexadecimal de la siguite manera:\n\n========================================================================\n\
+    eolandro@eolap:~$ hd saludo.txt \n00000000  68 6f 6c 61                      \
+    \                 |hola|\n00000004\n========================================================================\n\
+    \nRealiza un programa que pida dos archivos uno de origen y otro de destino.\n\
+    Vas a leer el archivo de origen byte por byte y lo vas a guardar en el\narchivo
+    de destino pero en formato hexadecimal, ten cuidado no debes\ncargar el archivo
+    completo en memoria en un solo paso\nUn Ejemplo con el ya mencionado archivo saludo.txt:\n\
+    \n========================================================================\npython
+    visorhexa.py\nDame el nombre del archivo de origen: saludo.txt\nDame el nombre
+    del archivo de destino: saludo_hex.txt\nListo!\n========================================================================\n\
+    \nSi abrimos saludo_hex.txt\nveriamos \n\n68 6F 6C 61\n\n"
+  Cumplio: No
+- ID: R009
+  Ponderacion: 10
+  Reactivo: "\nProcesar data\n\nUtilizando el patron de diseño composicion con generadores\n\
+    obten la salida correspondiente:\n\nR = \"29590097,ROMAY TACITURNO RENE FERNANDA,0.7,1,1,1,1,1,1,0.7\"\
+    \n\nT = compoGen(R)\nnext(T)\nR = T.next(fun0)\nR = T.next(fun1)\nR = T.next(fun2)\n\
+    R = T.next(fun3) =>...\nR = T.next(None)\nprint(R)\n=> [29590097,\"ROMAY TACITURNO
+    RENE FERNANDA\",92.5]\n\n"
+  Cumplio: No

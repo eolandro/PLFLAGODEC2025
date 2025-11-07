@@ -1,0 +1,87 @@
+
+padre(harry_james_potter, james_sirius_potter).
+padre(harry_james_potter, albus_severus_potter).
+padre(harry_james_potter, lily_luna_potter).
+padre(arthur_weasley, william_weasley).
+padre(arthur_weasley, charles_weasley).
+padre(arthur_weasley, percy_weasley).
+padre(arthur_weasley, fred_weasley).
+padre(arthur_weasley, george_weasley).
+padre(arthur_weasley, ronald_bilius_weasley).
+padre(arthur_weasley, ginny_weasley).
+padre(ronald_bilius_weasley, rose_granger_weasley).
+padre(ronald_bilius_weasley, hugo_weasley).
+padre(draco_malfoy, scorpius_hyperion_malfoy).
+padre(remus_lupin, teddy_remus_lupin).
+padre(lucius_malfoy, draco_malfoy).
+padre(abraxas_malfoy, lucius_malfoy).
+padre(septimus_weasley, arthur_weasley).
+padre(cygnus_black_iii, narcissa_black).
+padre(cygnus_black_iii, bellatrix_black).
+padre(cygnus_black_iii, andromeda_black).
+padre(orion_black, sirius_black).
+padre(orion_black, regulus_black).
+
+madre(ginny_weasley, james_sirius_potter).
+madre(ginny_weasley, albus_severus_potter).
+madre(ginny_weasley, lily_luna_potter).
+madre(molly_prewett, william_weasley).
+madre(molly_prewett, charles_weasley).
+madre(molly_prewett, percy_weasley).
+madre(molly_prewett, fred_weasley).
+madre(molly_prewett, george_weasley).
+madre(molly_prewett, ronald_bilius_weasley).
+madre(molly_prewett, ginny_weasley).
+madre(hermione_granger, rose_granger_weasley).
+madre(hermione_granger, hugo_weasley).
+madre(astoria_greengrass, scorpius_hyperion_malfoy).
+madre(nymphadora_tonks, teddy_remus_lupin).
+madre(narcissa_black, draco_malfoy).
+madre(druella_rosier, narcissa_black).
+madre(druella_rosier, bellatrix_black).
+madre(druella_rosier, andromeda_black).
+madre(walburga_black, sirius_black).
+madre(walburga_black, regulus_black).
+
+pareja(harry_james_potter, ginny_weasley).
+pareja(ronald_bilius_weasley, hermione_granger).
+pareja(remus_lupin, nymphadora_tonks).
+pareja(lucius_malfoy, narcissa_black).
+pareja(draco_malfoy, astoria_greengrass).
+pareja(william_weasley, fleur_isabelle_delacour).
+pareja(arthur_weasley, molly_prewett).
+pareja(orion_black, walburga_black).
+pareja(cygnus_black_iii, druella_rosier).
+pareja(septimus_weasley, cedrella_black).
+pareja(abraxas_malfoy, desconocida).
+
+pareja(X, Y) :- pareja(Y, X).
+
+hijo(X, Y) :- padre(Y, X).
+hijo(X, Y) :- madre(Y, X).
+
+hermano_a(X, Y) :-
+    X \= Y,
+    (padre(P, X), padre(P, Y);
+     madre(M, X), madre(M, Y)).
+
+abuelo_a(X, N) :-
+    (padre(X, P); madre(X, P)),
+    (padre(P, N); madre(P, N)).
+
+bisnieto_a(BN, BA) :-
+    (padre(P, BN); madre(P, BN)),
+    (padre(GP, P); madre(GP, P)),
+    (padre(BA, GP); madre(BA, GP)).
+
+sobrino_a(S, T) :-
+    (padre(P, S); madre(P, S)),
+    hermano_a(P, T).
+
+nuera(N, S) :-
+    pareja(N, H),
+    (padre(S, H); madre(S, H)).
+
+tio_abuelo_a(TA, N) :-
+    abuelo_a(A, N),
+    hermano_a(TA, A).

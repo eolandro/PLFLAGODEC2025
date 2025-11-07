@@ -1,0 +1,8 @@
+combina_listas([], [], []).
+
+combina_listas([], L2, L2).
+
+combina_listas(L1, [], L1).
+
+combina_listas([F|C], [G|D], [F, G|R]) :-
+    combina_listas(C, D, R).

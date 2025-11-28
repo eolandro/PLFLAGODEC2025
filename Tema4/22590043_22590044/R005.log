@@ -1,0 +1,23 @@
+% ##R005##
+% ##50##
+% """
+% S-expression es la notacion base de los lenguajes
+% derivados de lisp. Aqui hay algunos ejemplos
+% ( Nombre "Leonardo" Carrera "Sistemas")
+% ( 10 20 30 40 )
+% ( 2.54 2 "hola" -1 3.14)
+% ()
+
+
+
+% Defina un predicado capaz de validar una S- expression
+% Basandose en los ejemplos presentados
+% 40 puntos
+% s_expr("(Nombre \"Leonardo\")").
+% true.
+% s_expr("(\"Hola Mundo\")").
+% true.
+% s_expr("( 10 20 30 40 )").
+% true.
+% """
+

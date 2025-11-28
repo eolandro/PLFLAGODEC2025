@@ -1,0 +1,56 @@
+% ##R002##
+% ##10##
+% """
+% Realice un predicado que valide el no terminal 'Escape'
+% Segun la especificacion de json. 10 pts
+
+% escape("\"").
+% true
+% escape("n").
+% true
+% escape("b").
+% true
+% escape("u0000").
+% true
+% """
+
+
+
+
+listatom_liststring([A],LC):- atom_string(A,C), LC=[C].
+listatom_liststring([A|RA],LC):-
+    listatom_liststring(RA,LCC),
+    atom_string(A,C),
+    LC=[C|LCC].
+
+string_to_liststring(S,L):-
+    string_chars(S,A),
+    listatom_liststring(A,L).
+
+hex("0"). hex("1"). hex("2"). hex("3"). hex("4").
+hex("5"). hex("6"). hex("7"). hex("8"). hex("9").
+hex("A"). hex("B"). hex("C"). hex("D"). hex("E"). hex("F").
+hex("a"). hex("b"). hex("c"). hex("d"). hex("e"). hex("f").
+
+escape_simple("\"").
+escape_simple("\\").
+escape_simple("/").
+escape_simple("b").
+escape_simple("f").
+escape_simple("n").
+escape_simple("r").
+escape_simple("t").
+
+escape_unicode(["u",A,B,C,D]):-
+    hex(A), hex(B), hex(C), hex(D).
+
+escape(Str):-
+    % convertir string → lista de strings
+    string_to_liststring(Str,L),
+    escape_list(L).
+
+escape_list(L):- escape_simple_string(L).
+escape_list(L):- escape_unicode(L).
+
+escape_simple_string([C]):- escape_simple(C).
+escape_simple_string(["\\"]):- fail.

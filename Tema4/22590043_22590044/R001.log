@@ -1,0 +1,72 @@
+% ##R001##
+% ##20##
+% """
+% SON (JavaScript Object Notation) es un formato
+% ligero de intercambio de datos.
+% Leerlo y escribirlo es simple para humanos,
+% mientras que para las máquinas es simple interpretarlo
+% y generarlo.
+
+% Su especificacion se encuentra aqui.
+% https://www.json.org/json-es.html
+
+
+
+%Realice un predicado que valide una sentencia de 'Integer'
+
+% integer_s("1").
+% true
+% integer_s("10").
+% true
+% integer_s("-1").
+% true
+%"""
+
+listatom_liststring([A],LC):- atom_string(A,C), LC=[C].
+listatom_liststring([A|RA],LC):-
+    listatom_liststring(RA,LCC),
+    atom_string(A,C),
+    LC=[C|LCC].
+
+string_to_liststring(Str,LS):-
+    string_chars(Str,A),
+    listatom_liststring(A,LS).
+
+
+
+digit("0").
+digit("1").
+digit("2").
+digit("3").
+digit("4").
+digit("5").
+digit("6").
+digit("7").
+digit("8").
+digit("9").
+
+digits([D]):- digit(D).
+digits([D|R]):- digit(D), digits(R).
+
+
+integer_s(Str):-
+    string_to_liststring(Str,LS),
+    int_list(LS).
+
+int_list(["0"]).
+
+int_list([D|R]):-
+    digit(D),
+    D \= "0",
+    ( R = [] ; digits(R) ).
+
+
+int_list(["-",D]):-
+    digit(D),
+    D \= "0".
+
+
+int_list(["-",D|R]):-
+    digit(D),
+    D \= "0",
+    digits(R).

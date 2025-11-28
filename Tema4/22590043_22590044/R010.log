@@ -1,0 +1,128 @@
+% ##R010##
+% ##50##
+% """
+% Realice un predicado que valide un hash de bcrypt
+% https://en.wikipedia.org/wiki/Bcrypt#Description
+% 40 pts
+
+% bcrypt("$2a$12$3oUINuVy1UCI0HpeT43QqOkgaxScqa0meG.KwqhcEDsHb7N.ZDsHa").
+% true
+% bcrypt("$2a$09$8eVlg43oGdXq2wWj4iIzneRE7HTdNuWjFiWqKSYKo2j.CdQvlAfWe").
+% true
+% """
+
+
+
+listatom_liststring([A],LC):-atom_string(A,C),LC=[C].
+listatom_liststring([A|RA],LC):-
+    listatom_liststring(RA,LCC),
+    atom_string(A,C), LC=[C|LCC].
+
+string_to_liststring(Cadena,LCadenas):-
+    string_chars(Cadena,LAtomos),
+    listatom_liststring(LAtomos,LCadenas).
+
+
+bx("A").
+bx("B").
+bx("C").
+bx("D").
+bx("E").
+bx("F").
+bx("G").
+bx("H").
+bx("I").
+bx("J").
+bx("K").
+bx("L").
+bx("M").
+bx("N").
+bx("O").
+bx("P").
+bx("Q").
+bx("R").
+bx("S").
+bx("T").
+bx("U").
+bx("V").
+bx("W").
+bx("X").
+bx("Y").
+bx("Z").
+
+bx("a").
+bx("b").
+bx("c").
+bx("d").
+bx("e").
+bx("f").
+bx("g").
+bx("h").
+bx("i").
+bx("j").
+bx("k").
+bx("l").
+bx("m").
+bx("n").
+bx("o").
+bx("p").
+bx("q").
+bx("r").
+bx("s").
+bx("t").
+bx("u").
+bx("v").
+bx("w").
+bx("x").
+bx("y").
+bx("z").
+
+bx("0").
+bx("1").
+bx("2").
+bx("3").
+bx("4").
+bx("5").
+bx("6").
+bx("7").
+bx("8").
+bx("9").
+
+bx(".").
+bx("/").
+
+
+dig("0").
+dig("1").
+dig("2").
+dig("3").
+dig("4").
+dig("5").
+dig("6").
+dig("7").
+dig("8").
+dig("9").
+
+costo([A,B]) :- dig(A), dig(B).
+
+
+cadena_53([]):- fail.  % No debe estar vacía
+
+cadena_53([A|R]) :-
+    bx(A),
+    cadena_53_aux(R,1).  % Ya llevamos 1
+
+cadena_53_aux([],53).
+cadena_53_aux([A|R],N) :-
+    N < 53,
+    bx(A),
+    N2 is N+1,
+    cadena_53_aux(R,N2).
+
+bcrypt(Str):-
+    string_to_liststring(Str,LS),
+    bcrypt_list(LS).
+
+bcrypt_list(["$","2","a","$",C1,C2,"$"|Rest]):-
+    costo([C1,C2]),
+    cadena_53(Rest).

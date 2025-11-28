@@ -1,0 +1,42 @@
+% ##R004##
+% ##10##
+% """
+% Realice un predicado que valide el no terminal 'Fraction'
+
+% fraction("").
+% true
+% fraction(".00").
+% true
+% fraction(".1416").
+% true
+% """
+
+
+listatom_liststring([A],LC):- atom_string(A,C), LC=[C].
+
+listatom_liststring([A|RA],LC):-
+    listatom_liststring(RA,LCC),
+    atom_string(A,C),
+    LC=[C|LCC].
+
+string_to_liststring(Cadena,LCadenas):-
+    string_chars(Cadena,LAtomos),
+    listatom_liststring(LAtomos,LCadenas).
+
+dig("0").
+dig("1").
+dig("2").
+dig("3").
+dig("4").
+dig("5").
+dig("6").
+dig("7").
+dig("8").
+dig("9").
+
+digitos([D]) :- dig(D).
+digitos([D|R]) :- dig(D), digitos(R).
+
+fraction("") :- !.
+
+fraction(Str) :- string_to_liststring(Str, [".", D | R]), digitos([D|R]).

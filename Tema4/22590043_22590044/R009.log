@@ -1,0 +1,57 @@
+% ##R009##
+% ##20##
+% """
+% Realice un predicado que valide un UUID v4
+% https://en.wikipedia.org/wiki/Universally_unique_identifier
+% 40 pts
+
+% uuid("7eb36e8e-13ea-434f-a34e-a47d7ba28676").
+% true
+% uuid("1ffc0af2-7f0a-4114-bbc8-87c66eef1cc4").
+% true
+% uuid("422a4f74-e8a7-4567-aa3f-40c9fcc74993").
+% true
+% """
+
+listatom_liststring([A],LC):- atom_string(A,C), LC=[C].
+listatom_liststring([A|RA],LC):-
+    listatom_liststring(RA,LCC),
+    atom_string(A,C),
+    LC=[C|LCC].
+
+string_to_liststring(Str,L):-
+    string_chars(Str,A),
+    listatom_liststring(A,L).
+
+hex("0"). hex("1"). hex("2"). hex("3"). hex("4").
+hex("5"). hex("6"). hex("7"). hex("8"). hex("9").
+hex("A"). hex("B"). hex("C"). hex("D"). hex("E"). hex("F").
+hex("a"). hex("b"). hex("c"). hex("d"). hex("e"). hex("f").
+
+variant("8"). variant("9"). variant("a"). variant("b").
+variant("A"). variant("B").
+
+tomar_hex(0, L, L) :- !.
+tomar_hex(N, [H|T], Resto) :-
+    N > 0,
+    hex(H),
+    N1 is N - 1,
+    tomar_hex(N1, T, Resto).
+
+validar_version(["4"|T], Resto) :-
+    tomar_hex(3, T, Resto).
+
+validar_variante([V|T], Resto) :-
+    variant(V),
+    tomar_hex(3, T, Resto).
+
+uuid(Str) :-
+    string_to_liststring(Str, Lista),
+    uuid_estructura(Lista).
+
+uuid_estructura(Lista) :-
+    tomar_hex(8, Lista, ["-"|R1]),
+    tomar_hex(4, R1, ["-"|R2]),
+    validar_version(R2, ["-"|R3]),
+    validar_variante(R3, ["-"|R4]),
+    tomar_hex(12, R4, []).

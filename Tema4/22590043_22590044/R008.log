@@ -1,0 +1,57 @@
+% ##R008##
+% ##20##
+% """
+% Realice un predicado que valide una direccion mac
+% 20 pts
+
+% mac_ad("08:9e:01:6f:2e:41").
+% true
+% mac_ad("ff:ff:01:6f:2e:41").
+% true
+% mac_ad("00:00:00:00:00:00").
+% true
+% """
+
+
+listatom_liststring([A],LC):-atom_string(A,C),LC=[C].
+listatom_liststring([A|RA],LC):-
+    listatom_liststring(RA,LCC),
+    atom_string(A,C), LC=[C|LCC].
+
+string_to_liststring(Cadena,LCadenas):-
+    string_chars(Cadena,LAtomos),
+    listatom_liststring(LAtomos,LCadenas).
+
+clean_liststring([""],[]).
+clean_liststring([P],[P]).
+clean_liststring([""|R],LSC):- clean_liststring(R,LSC).
+clean_liststring([P|R],LSC):- clean_liststring(R,L1), LSC=[P|L1].
+
+split_mac(Str,LS):-
+    split_string(Str,":","",R),
+    clean_liststring(R,LS).
+
+
+hex("0"). hex("1"). hex("2"). hex("3"). hex("4").
+hex("5"). hex("6"). hex("7"). hex("8"). hex("9").
+hex("A"). hex("B"). hex("C"). hex("D"). hex("E"). hex("F").
+hex("a"). hex("b"). hex("c"). hex("d"). hex("e"). hex("f").
+
+
+grupo_mac(Str):-
+    string_to_liststring(Str,[A,B]),
+    hex(A), hex(B).
+
+
+mac_ad(Str):-
+    split_mac(Str,Grupos),
+    length(Grupos,6),
+    validar_grupos_mac(Grupos).
+
+validar_grupos_mac([G1,G2,G3,G4,G5,G6]):-
+    grupo_mac(G1),
+    grupo_mac(G2),
+    grupo_mac(G3),
+    grupo_mac(G4),
+    grupo_mac(G5),
+    grupo_mac(G6).

@@ -26,7 +26,7 @@ string_to_liststring(Cadena, LCadenas) :-
 mac_ad(MAC) :-
     string(MAC),
     split_string(MAC, ":", "", Partes),
-    length(Partes, 6),          % Debe tener 6 bloques
+    length(Partes, 6),
     validar_bloques_mac(Partes).
 validar_bloques_mac([]).
 validar_bloques_mac([B|Resto]) :-

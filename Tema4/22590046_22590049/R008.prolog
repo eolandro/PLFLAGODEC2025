@@ -23,10 +23,17 @@ listatom_liststring([A|RA], LC) :-
 string_to_liststring(Cadena, LCadenas) :-
     string_chars(Cadena, LAtomos),
     listatom_liststring(LAtomos, LCadenas).
+tamanio([], 0).
+tamanio([_|R], N) :-
+    tamanio(R, N1),
+    N is N1 + 1.
+comlista(X, [X|_]).
+comlista(X, [_|R]) :-
+    comlista(X, R).
 mac_ad(MAC) :-
     string(MAC),
     split_string(MAC, ":", "", Partes),
-    length(Partes, 6),
+    tamanio(Partes, 6),
     validar_bloques_mac(Partes).
 validar_bloques_mac([]).
 validar_bloques_mac([B|Resto]) :-
@@ -34,12 +41,11 @@ validar_bloques_mac([B|Resto]) :-
     validar_bloques_mac(Resto).
 bloque_mac(B) :-
     string_to_liststring(B, Chars),
-    length(Chars, 2),
+    tamanio(Chars, 2),
     validar_hex(Chars).
 validar_hex([]).
 validar_hex([C|Resto]) :-
     char_hex(C),
     validar_hex(Resto).
 char_hex(C) :- char_type(C, digit).
-char_hex(C) :- member(C, ["a","b","c","d","e","f","A","B","C","D","E","F"]).
-
+char_hex(C) :- comlista(C, ["a","b","c","d","e","f","A","B","C","D","E","F"]).

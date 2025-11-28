@@ -24,6 +24,13 @@ listatom_liststring([A|RA], LC) :-
 string_to_liststring(Cadena, LCadenas) :-
     string_chars(Cadena, LAtomos),
     listatom_liststring(LAtomos, LCadenas).
+tamanio([], 0).
+tamanio([_|R], N) :-
+    tamanio(R, N1),
+    N is N1 + 1.
+comlista(X, [X|_]).
+comlista(X, [_|R]) :-
+    comlista(X, R).
 uuid(UUID) :-
     string(UUID),
     split_string(UUID, "-", "", [P1, P2, P3, P4, P5]),
@@ -33,20 +40,20 @@ uuid(UUID) :-
     validar_bloque_variante(P4),
     validar_bloque(P5, 12).
 validar_bloque(Bloque, N) :-
-    string_chars(Bloque, L),
-    length(L, N),
+    string_to_liststring(Bloque, L),
+    tamanio(L, N),
     validar_hex_lista(L).
 validar_bloque_v4(Bloque) :-
-    string_chars(Bloque, [Primero|Resto]),
-    Primero = '4',
+    string_to_liststring(Bloque, [Primero|Resto]),
+    Primero = "4",
     validar_hex_lista(Resto).
 validar_bloque_variante(Bloque) :-
-    string_chars(Bloque, [Primero|Resto]),
-    member(Primero, ['8','9','a','b','A','B']),
+    string_to_liststring(Bloque, [Primero|Resto]),
+    comlista(Primero, ["8","9","a","b","A","B"]),
     validar_hex_lista(Resto).
 validar_hex_lista([]).
 validar_hex_lista([C|R]) :-
     char_hex(C),
     validar_hex_lista(R).
 char_hex(C) :- char_type(C, digit).
-char_hex(C) :- member(C, ['a','b','c','d','e','f','A','B','C','D','E','F']).
+char_hex(C) :- comlista(C, ["a","b","c","d","e","f","A","B","C","D","E","F"]).
